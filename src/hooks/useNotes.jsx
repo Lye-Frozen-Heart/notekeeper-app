@@ -1,13 +1,15 @@
+//Hook made with no use of AI, inspired in previous frontend projects...
 import { useEffect, useState } from "react";
 import notesService from "../services/notes/notesService";
 export const useNotes = () => {
+  //Notes array and loader
   const [notes, setNotes] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  //Handle the setter of the notes array
   const handleNewNotesValue = (newValue) => {
     setNotes(newValue);
   };
-
+  //Within the execution of the custom hook... Obtain the notes
   useEffect(() => {
     const getAllNotesHandler = async () => {
       notesService
@@ -22,7 +24,7 @@ export const useNotes = () => {
     };
     getAllNotesHandler();
   }, []);
-
+  //Handle the newNote entry then again get the array with the new notes
   const handleNewNoteEntry = async (noteValues) => {
     setLoading(true);
     try {
@@ -35,7 +37,7 @@ export const useNotes = () => {
       setLoading(false);
     }
   };
-
+  //Handle the update of the given noteEntry then again get the new array of updated notes
   const handleUpdateNoteEntry = async (id, noteValues) => {
     setLoading(true);
     try {
@@ -48,7 +50,7 @@ export const useNotes = () => {
       setLoading(false);
     }
   };
-
+  //Handle the delte of the given noteEntry then again get the new array of actual notes
   const handleDeleteNoteEntry = async (id) => {
     setLoading(true);
     try {

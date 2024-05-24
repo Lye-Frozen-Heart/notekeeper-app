@@ -12,13 +12,14 @@ export const NotesList = ({
   handleDeleteEntry,
   handleUpdateNoteEntry,
 }) => {
+  //Use state variables for the modals, page and the selected note. Current page does not work! Non AI Used
   const [isCreateModalVisible, setIsCreateModalVisible] = useState(false);
   const [isUpdateModalVisible, setIsUpdateModalVisible] = useState(false);
   const [selectedNote, setSelectedNote] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-
+  //Notification to show info
   const [notificationInfo, setNotificationInfo] = useState(null);
-
+  //Delete entry handler with messages
   const handleDeleteEntryNotification = async (id) => {
     try {
       await handleDeleteEntry(id);
@@ -59,7 +60,7 @@ export const NotesList = ({
     setIsUpdateModalVisible(false);
     setSelectedNote(null);
   };
-
+  //Finish onCreateForm Action
   const onFinishCreate = async (values) => {
     try {
       await handleNewNoteEntry(values);
@@ -77,7 +78,7 @@ export const NotesList = ({
       setIsCreateModalVisible(false);
     }
   };
-
+  //Finish onUpdateForm Action
   const onFinishUpdate = async (noteValues) => {
     try {
       await handleUpdateNoteEntry(selectedNote.id, noteValues);
@@ -97,7 +98,7 @@ export const NotesList = ({
       setSelectedNote(null);
     }
   };
-
+  //Emptying the notification variable
   useEffect(() => {
     if (notificationInfo) {
       const { type, content } = notificationInfo;
@@ -105,7 +106,7 @@ export const NotesList = ({
       setNotificationInfo(null);
     }
   }, [notificationInfo]);
-
+  //Loader within the list of the actual notes, along with the hidden forms
   return (
     <>
       {loading ? (

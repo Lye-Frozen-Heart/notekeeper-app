@@ -1,3 +1,4 @@
+//A modal form where you can create a new note, non AI Used
 import {
   Modal,
   Form,

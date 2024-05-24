@@ -1,3 +1,4 @@
+//Note display card within edit and delete functions, non AI Used
 import { Card } from "antd";
 import "./Note.css";
 import {

@@ -1,3 +1,5 @@
+//A modal form where you can update a note, non AI Used
+//Needs a note to show it's data
 import {
   Modal,
   Form,

@@ -1,3 +1,4 @@
+//Component which renders a different Icon considering the status of the note, non AI Used
 import {
   EllipsisOutlined,
   CheckOutlined,
