@@ -7,7 +7,7 @@ const baseUrl = import.meta.env.VITE_BASE_URL_NOTES;
 //Then we fetch to the given URL within the method and type of content we declared previously.
 //If the response it's not okay we'll return an status of it.
 //Finally if the response it's okay we'll await for the return of the response in JSON format.
-const getData = async (url, method = "GET", body = null) => {
+const fetchData = async (url, method = "GET", body = null) => {
   try {
     const options = {
       method,
@@ -17,7 +17,10 @@ const getData = async (url, method = "GET", body = null) => {
 
     const response = await fetch(url, options);
 
-    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    if (!response.ok) {
+      console.log(`HTTP Error! Status of the request: ${response.status}`);
+      return null;
+    }
 
     const data = await response.json();
 
@@ -29,21 +32,23 @@ const getData = async (url, method = "GET", body = null) => {
 };
 //Using getDate we get all the notes from the given URL.
 const getAllNotes = async () => {
-  return await getData(baseUrl);
+  return await fetchData(baseUrl);
 };
 //We send to the API the note data within POST method.
 const addNewNoteEntry = async (body) => {
-  await getData(baseUrl, "POST", body);
+  await fetchData(baseUrl, "POST", body);
 };
 //We update the note with it's given id and it's new parameters.
 const updateNoteEntry = async (id, body) => {
   const url = `${baseUrl}/${id}`;
-  await getData(url, "PUT", body);
+  const updatedNote = await fetchData(url, "PUT", body);
+  return updatedNote;
 };
 //We delete the note with it's given id.
 const deleteNoteEntry = async (id) => {
   const url = `${baseUrl}/${id}`;
-  await getData(url, "DELETE");
+  const deletedNote = await fetchData(url, "DELETE");
+  return deletedNote;
 };
 
 export default {

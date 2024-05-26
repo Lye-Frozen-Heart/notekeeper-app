@@ -7,6 +7,7 @@ function App() {
   ( I need feedback if this is a good structure)
   Finally we pass the given date within props to the internal NotesList components.
   */
+
   const {
     notes,
     loading,
@@ -14,6 +15,7 @@ function App() {
     handleDeleteNoteEntry,
     handleUpdateNoteEntry,
   } = useNotes();
+
   return (
     <>
       <NotesList
