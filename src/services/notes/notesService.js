@@ -36,7 +36,8 @@ const getAllNotes = async () => {
 };
 //We send to the API the note data within POST method.
 const addNewNoteEntry = async (body) => {
-  await fetchData(baseUrl, "POST", body);
+  const addedNote = await fetchData(baseUrl, "POST", body);
+  return addedNote;
 };
 //We update the note with it's given id and it's new parameters.
 const updateNoteEntry = async (id, body) => {
