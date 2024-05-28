@@ -8,5 +8,5 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 Netlify and Render links! ⛓
-[Netlify](https://deploy-preview-2--notekeeper-project-lye.netlify.app/)
+[Netlify](https://notekeeper-project-lye.netlify.app/)
 [Render API](https://notekeeper-api-lye.onrender.com/)
