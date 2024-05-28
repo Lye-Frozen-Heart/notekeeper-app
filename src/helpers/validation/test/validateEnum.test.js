@@ -1,6 +1,6 @@
+//Non AI was used to develop the given tests
 import { expect, test } from "vitest";
 import { validateEnum } from "../validateEnum";
-
 test("validateEnum returns true if the parameter value is a valid enum value.", () => {
   const enumValues = ["pending", "in progress", "done"];
   const value = "pending";
