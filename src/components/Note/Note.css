@@ -1,0 +1,16 @@
+.gPostIt{
+    width: auto;
+}
+.topBar{
+  z-index:1;
+  position:absolute;
+  height:40px;
+  background-color:#f39c12;
+}
+.writablePart{
+  margin-top:40px;
+  position:absolute;
+  
+  height:160px;
+  background-color:#f1c40f;
+}
