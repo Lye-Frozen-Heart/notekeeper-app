@@ -26,7 +26,7 @@ const fetchData = async (url, method = "GET", body = null) => {
 
     return data;
   } catch (error) {
-    console.error("Error al obtener las notas:", error);
+    console.error("Error fetching data:", error);
     throw error;
   }
 };
