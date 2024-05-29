@@ -15,9 +15,7 @@ export const useNotes = () => {
       notesService
         .getAllNotes()
         .then((data) => handleNewNotesValue(data.notes))
-        .catch((error) =>
-          console.error("Error al obtener todas las notas:", error)
-        )
+        .catch((error) => console.error("Error obtaining the notes:", error))
         .finally(() => {
           setLoading(false);
         });
